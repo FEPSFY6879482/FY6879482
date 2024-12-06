@@ -102,7 +102,8 @@
  this stigma, and give the wearer more confidence in their everyday lives. Open Bionics is an example of a company aiming to integrate the pleasure of an aesthetically pleasing device
 </p>
 
-
+<div id="section">
+ 
  <h3 id="Introduction">Introduction</h3>
  <p>
 A prosthetic device is defined as “an artificial body part that replaces a part that’s missing or no longer functional” <b><i><a href="index.html#Cleveland Clinic">(Cleveland Clinic, 2024)</a></i></b> and must be “functional, comfortable and attractive” <b><i><a href="index.html#Zhou">(Millstein et al in Zhou, 2023)</a></i></b>. This means a person can use
@@ -156,6 +157,8 @@ In the past a part of prosthetic functionality has been how well it allows someo
  oneself and celebrates their abilities, rather than covers for that which they no longer have.  
  </p>
 
+</div>
+ 
  <video src="presentation (1) (1).mp4" width="800" height="450" controls>
  </video>
 
@@ -252,5 +255,44 @@ Zhou, F., Benford, S. D., Whatley, S., Marsh, K., Ashcroft, I., Erhart, T., O’
     // Initial load to display the time on page load
     window.onload = getLastUpdatedTime;
 </script>
+
+
+<div id="wordCountDisplay"></div>
+
+   <script>
+       // Function to calculate word count for a specific section
+       function calculateSectionWordCount(selector) {
+           const section = document.querySelector(selector);
+
+           if (!section) {
+               console.error(`No element found with selector: ${selector}`);
+               return 0;
+           }
+
+           // Get the text content of the section
+           const text = section.innerText || section.textContent;
+
+           // Match words using a regular expression
+           const words = text.match(/\b\w+\b/g);
+
+           // Return the word count (if no words, return 0)
+           return words ? words.length : 0;
+       }
+
+       // Function to display the word count
+       function displaySectionWordCount(selector) {
+           const wordCount = calculateSectionWordCount(selector);
+           const displayElement = document.getElementById('wordCountDisplay');
+           
+           if (displayElement) {
+               displayElement.textContent = `Word Count for this page: ${wordCount}`;
+           }
+       }
+
+       // Run the word count calculation when the page loads
+       window.onload = () => {
+           displaySectionWordCount('#section');
+       };
+       </script>
   
 </html>
